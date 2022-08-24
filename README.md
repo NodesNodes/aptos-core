@@ -30,7 +30,17 @@ Aptos Core is licensed as [Apache 2.0](https://github.com/aptos-labs/aptos-core/
 
 
 
+
+
+
+
+
+
+
+
+
 Установка ноды:
+========================
 
 1. Обновление пакетов и системы:
 sudo apt update && sudo apt upgrade -y
