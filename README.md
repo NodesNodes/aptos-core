@@ -31,15 +31,19 @@ Aptos Core is licensed as [Apache 2.0](https://github.com/aptos-labs/aptos-core/
 
 
 
+
+
+
 Установка ноды:
 ========================
 
 ### 1. Обновление пакетов и системы:
-sudo apt update && sudo apt upgrade -y
+```sudo apt update && sudo apt upgrade -y
+```
 
 ### 2. Установка зависимостей
-sudo apt-get install jq unzip -y
-
+```sudo apt-get install jq unzip -y
+```
 ### 3. Установка docker
 sudo apt-get install ca-certificates curl gnupg lsb-release -y
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
@@ -123,17 +127,17 @@ docker-compose up -d
 
 
 
-####Полезные команды:
-Проверка состояния ноды через терминал:
+**Полезные команды:**
+**Проверка состояния ноды через терминал:
 curl -s 'http://aptos-nhc.nod.run:20121/check_node?node_url=http://<IP НОДЫ>&baseline_configuration_name=ait3_validator&api_port=80'
 
 
-Посмотреть открытые порты:
+**Посмотреть открытые порты:
 sudo apt install lsof && sudo lsof -i -P -n | grep LISTEN
 
-Для ноды валидатора должны быть открыты 80, 6180 и 9101
+**Для ноды валидатора должны быть открыты 80, 6180 и 9101
 
-Для full node должны быть открыты 80/8080, 6182, 9101
+**Для full node должны быть открыты 80/8080, 6182, 9101
 
 
 
