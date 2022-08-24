@@ -27,15 +27,7 @@ Aptos-core strives towards being the safest and most scalable layer one blockcha
 You can learn more about contributing to the Aptos project by reading our [Contribution Guide](https://github.com/aptos-labs/aptos-core/blob/main/CONTRIBUTING.md) and by viewing our [Code of Conduct](https://github.com/aptos-labs/aptos-core/blob/main/CODE_OF_CONDUCT.md).
 
 Aptos Core is licensed as [Apache 2.0](https://github.com/aptos-labs/aptos-core/blob/main/LICENSE).
-
-
-
-
-
-
-
-
-
+---------------
 
 
 
@@ -88,7 +80,7 @@ aptos genesis set-validator-configuration \
     --validator-host <IP НОДЫ>:6180 \
     --stake-amount 100000000000000
 
-Пример с указанием ip при использовании full node:
+**Пример с указанием ip при использовании full node:**
 
 aptos genesis set-validator-configuration \
     --local-repository-dir ~/$WORKSPACE \
@@ -106,7 +98,7 @@ aptos genesis generate-layout-template --output-file ~/$WORKSPACE/layout.yaml
 nano ~/$WORKSPACE/layout.yaml
 
 root_key: "D04470F43AB6AEAA4EB616B72128881EEF77346F2075FFE68E14BA7DEBD8095E"
-users: ["ИМЯ НОДЫ"]
+users: ["<ИМЯ НОДЫ>"]
 chain_id: 43
 allow_new_validators: false
 epoch_duration_secs: 7200
