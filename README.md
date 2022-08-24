@@ -42,44 +42,44 @@ Aptos Core is licensed as [Apache 2.0](https://github.com/aptos-labs/aptos-core/
 Установка ноды:
 ========================
 
-1. Обновление пакетов и системы:
+### 1. Обновление пакетов и системы:
 sudo apt update && sudo apt upgrade -y
 
-2. Установка зависимостей
+### 2. Установка зависимостей
 sudo apt-get install jq unzip -y
 
-3. Установка docker
+### 3. Установка docker
 sudo apt-get install ca-certificates curl gnupg lsb-release -y
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
 echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
 sudo apt-get update
 sudo apt-get install docker-ce docker-ce-cli containerd.io -y
 
-4. Установка docker compose
+### 4. Установка docker compose
 docker_compose_version=$(wget -qO- https://api.github.com/repos/docker/compose/releases/latest | jq -r ".tag_name")
 sudo wget -O /usr/bin/docker-compose "https://github.com/docker/compose/releases/download/${docker_compose_version}/docker-compose-`uname -s`-`uname -m`"
 sudo chmod +x /usr/bin/docker-compose
 
-5. Установка aptos CLI
+### 5. Установка aptos CLI
 curl https://sh.rustup.rs -sSf | sh
 source $HOME/.cargo/env
 sudo apt install build-essential pkg-config openssl libssl-dev libclang-dev
 cargo install --git https://github.com/aptos-labs/aptos-core.git aptos --branch testnet
 
-6. Создание каталог ноды Aptos, указание имени пользователя
+### 6. Создание каталог ноды Aptos, указание имени пользователя
 export WORKSPACE=testnet
 export USERNAME=<ИМЯ НОДЫ>
 mkdir ~/$WORKSPACE
 cd ~/$WORKSPACE
 
-7. Скачивание конфигурационных файлов
+### 7. Скачивание конфигурационных файлов
 wget -qO docker-compose.yaml https://raw.githubusercontent.com/aptos-labs/aptos-core/main/docker/compose/aptos-node/docker-compose.yaml
 wget -qO validator.yaml https://raw.githubusercontent.com/aptos-labs/aptos-core/main/docker/compose/aptos-node/validator.yaml
 
-8. Генерация ключей
+### 8. Генерация ключей
 aptos genesis generate-keys --output-dir ~/$WORKSPACE/keys
 
-9. Конфигурация Валидатора, задание ip aдреса
+### 9. Конфигурация Валидатора, задание ip aдреса
 cd ~/$WORKSPACE
 aptos genesis set-validator-configuration \
     --local-repository-dir ~/$WORKSPACE \
@@ -98,10 +98,10 @@ aptos genesis set-validator-configuration \
     --full-node-host 34.135.169.144:6182 \
     --stake-amount 100000000000000
 
-10. Создание файла-шаблона, который определяет ноду в сете валидаторов
+### 10. Создание файла-шаблона, который определяет ноду в сете валидаторов
 aptos genesis generate-layout-template --output-file ~/$WORKSPACE/layout.yaml
 
-11. Редактирование созданого шаблона, указание имя ноды, добавление root_key и chain_id:
+### 11. Редактирование созданого шаблона, указание имя ноды, добавление root_key и chain_id:
 
 nano ~/$WORKSPACE/layout.yaml
 
@@ -120,18 +120,18 @@ rewards_apy_percentage: 10
 voting_duration_secs: 43200
 voting_power_increase_limit: 20
 
-12. Скачивание фреймворка Aptos
+### 12. Скачивание фреймворка Aptos
 wget https://github.com/aptos-labs/aptos-core/releases/download/aptos-framework-v0.3.0/framework.mrb -P ~/$WORKSPACE
 
-13. Компиляция genesis.blob и waypoint.tx
+### 13. Компиляция genesis.blob и waypoint.tx
 aptos genesis generate-genesis --local-repository-dir ~/$WORKSPACE --output-dir ~/$WORKSPACE
 
-14. Запуск docker
+### 14. Запуск docker
 docker-compose up -d
 
 
 
-Полезные команды:
+####Полезные команды:
 Проверка состояния ноды через терминал:
 curl -s 'http://aptos-nhc.nod.run:20121/check_node?node_url=http://<IP НОДЫ>&baseline_configuration_name=ait3_validator&api_port=80'
 
