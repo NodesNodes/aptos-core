@@ -148,7 +148,8 @@ docker-compose up -d
 ---------------
 
 **Полезные команды:**
-**Проверка состояния ноды через терминал:
+
+**Проверка состояния ноды через терминал:**
 ```
 curl -s 'http://aptos-nhc.nod.run:20121/check_node?node_url=http://<IP НОДЫ>&baseline_configuration_name=ait3_validator&api_port=80'
 ```
