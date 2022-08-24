@@ -70,7 +70,7 @@ sudo apt install build-essential pkg-config openssl libssl-dev libclang-dev
 cargo install --git https://github.com/aptos-labs/aptos-core.git aptos --branch testnet
 ```
 
-### 6. Создание каталог ноды Aptos, указание имени пользователя
+### 6. Создание каталога ноды Aptos, указание имени пользователя
 ```
 export WORKSPACE=testnet
 export USERNAME=<ИМЯ НОДЫ>
@@ -100,7 +100,7 @@ aptos genesis set-validator-configuration \
     --stake-amount 100000000000000
 ```
 
-**Пример с указанием ip при использовании full node:**
+**Пример с указанием ip и адресом full node:**
 ```
 aptos genesis set-validator-configuration \
     --local-repository-dir ~/$WORKSPACE \
@@ -152,6 +152,7 @@ docker-compose up -d
 ```
 curl -s 'http://aptos-nhc.nod.run:20121/check_node?node_url=http://<IP НОДЫ>&baseline_configuration_name=ait3_validator&api_port=80'
 ```
+---------------
 
 **Посмотреть открытые порты:
 ```
