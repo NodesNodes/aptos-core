@@ -137,7 +137,7 @@ voting_power_increase_limit: 20
 ```
 wget https://github.com/aptos-labs/aptos-core/releases/download/aptos-framework-v0.3.0/framework.mrb -P ~/$WORKSPACE
 ```
-### 13. Компиляция genesis.blob и waypoint.tx
+### 13. Компиляция `genesis.blob` и `waypoint.tx`
 ```
 aptos genesis generate-genesis --local-repository-dir ~/$WORKSPACE --output-dir ~/$WORKSPACE
 ```
@@ -162,24 +162,4 @@ sudo apt install lsof && sudo lsof -i -P -n | grep LISTEN
 **Для ноды валидатора должны быть открыты 80, 6180 и 9101
 
 **Для full node должны быть открыты 80/8080, 6182, 9101
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
