@@ -154,6 +154,14 @@ docker-compose up -d
 curl -s 'http://aptos-nhc.nod.run:20121/check_node?node_url=http://<IP НОДЫ>&baseline_configuration_name=ait3_validator&api_port=80'
 ```
 
+**Посмотреть логи валидаторской ноды:**
+```
+docker logs -f testnet-validator-1 --tail 50
+```
+**Посмотреть статус синхронизации:**
+```
+curl 127.0.0.1:9101/metrics 2> /dev/null | grep aptos_state_sync_version | grep type
+```
 
 **Посмотреть открытые порты:**
 ```
